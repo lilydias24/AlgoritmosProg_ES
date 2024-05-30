@@ -18,12 +18,10 @@ OBJETIVO = MOSTRAR QUANTIDADE DE DIAS NECESSÁRIOS PARA MATAR TODOS OS HABITANTE
 | QUANTIDADE DE MORTOS VIVOS DISPONIVEIS APÓS MATAR TODOS OS HABITANTES | 
 QUANTIDADE DE CADAVERES NÃO REANIMADOS 
 | QUANDO OS CAMINHANTES NÃO MATAREM TODOS OS HABITANTES MOSTRAR "DERROTA" (????)
--> QUANDO AINDA HOUVEREM HABITANTES VIVOS OU NÃO REANIMADOS ???
--> um morto vivo pode se unir com outro pra matar habitantes (7 não é multiplo de 3)
 
 /* O Rei da Noite está planejando destruir Westeros em um ataque massivo de mortos-vivos. 
 Um humano morto retorna como morto-vivo quando reanimado por um Caminhante Branco 
-(uma criatura mágica das terras gélidas do norte que inclui o próprio Rei da Noite), 
+(uma criatura mágica das terras gélidas do norte que inclui o próprio Rei da Noite) ?? , 
 mas há um limite de reanimações por dia: um Caminhante Branco pode reanimar 13 pessoas por dia, 
 e o Rei da Noite consegue reanimar 131 pessoas por dia.
 Os Caminhantes Brancos e o Rei da Noite conseguem reanimar mortos, mas não querem sujar suas mãos matando humanos, 

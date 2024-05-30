@@ -43,13 +43,44 @@ class TrabalhoI {
         int HM = 0;
         // Habitantes Mortos 
         int RH = 0;
+        // Habitantes Reanimados
+        int Dias = 0; 
 
-        while (HB > 0) {
-            for(int i = 0; i < MV; i++ ){
+        while ( HB > 0 ) { // enquanto houverem habitantes
+            Dias += 1;
+            if ( MV > 0 ) { // se houverem mortos vivos para matar habitantes
+                for(int i = 0; i < MMV; i++ ){ // laço para mortes enquanto houverem recargas de mortes
+                    HM += 1; // mais um habitante morto
+                    MMV -= 1; // menos uma recarga de morte
+                }
+                
+                HB = HB - HM; // habitantes sobreviventes após acabarem as recargas de mortes
 
+                // esses q sobreviveram vão pra matar mortos vivos ou ficam p outro dia ?
+
+                for (int i = 0 ; i <= HM ; i++) { // laço para habitantes a serem reanimados \\ talvez esteja errado
+                    if( HM > 0 ){
+                        if ( RCB > 0 ) { // se houverem recargas de reanimação e habitantes mortos
+                            RCB -= 1; // menos uma recarga de reanimação do caminhante branco
+                            HM -= 1 ; // menos um habitante morto a ser reanimado
+                            MV += 1; // mais um morto vivo
+                            RH += 1; // mais uma reanimação realizada
+                        } else if ( RRN > 0 ) { // se houverem recargas de reanimação e habitantes mortos
+                            RRN -= 1; // menos uma recarga de reanimação do rei da noite
+                            HM -= 1 ; // menos um habitante morto a ser reanimado
+                            MV += 1; // mais um morto vivo
+                            RH += 1; // mais uma reanimação realizada
+                        } else {
+                            // faltam possibilidades de reanimação | novo dia
+                        }
+                    } else {
+                        // Não há mais habitantes mortos para reanimar | Vitória ?
+                    }
+                }
+            } else { // não há mortos vivos para matar habitantes
+                System.out.print("Derrota!"); 
             }
         }
-
 
         // for (int i = 0 ; i <= HB ; i+= 3) { // laço para contagem de habitantes que matam mortos-vivos 
 
@@ -67,7 +98,6 @@ class TrabalhoI {
 //         }
 
 //         for (int i = 0 ; i <= HB ; i++) { // laço para contagem de habitantes a serem reanimados
-
 //            if ( RCB > 0 && HM > 0 ) {
 //                 RCB -= 1;
 //                 HM -= 1 ;
