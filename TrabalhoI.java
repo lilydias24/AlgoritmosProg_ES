@@ -96,20 +96,6 @@ class TrabalhoI {
 //                 // faltam possibilidades de matar para os mortos vivos | NOVO DIA ? 
 //             }
 //         }
-
-//         for (int i = 0 ; i <= HB ; i++) { // laço para contagem de habitantes a serem reanimados
-//            if ( RCB > 0 && HM > 0 ) {
-//                 RCB -= 1;
-//                 HM -= 1 ;
-//                 MV += 1;
-//            } else if ( RRN > 0 && HM > 0 ) {
-//                 RRN -= 1;
-//                 HM -= 1 ;
-//                 MV += 1;
-//            } else {
-//                 // faltam possibilidades de reanimação ou faltam habitantes mortos | NOVO DIA ?
-//            }
-//         }
     
 //         if ( HM > 0) {
 //             HB = HB - HM;
