@@ -51,20 +51,6 @@ class TrabalhoI {
         while (HB > 0) { // enquanto houverem habitantes vivos
             if (MV > 0) { // se houverem mortos-vivos para matar habitantes
 
-                /*
-                 * for (int i = 0; i < MMV; i++) { // laço para mortes enquanto houverem
-                 * recargas \\ errado
-                 * HM += 1; // mais um habitante morto
-                 * MMV -= 1; // menos uma recarga de morte
-                 * }
-                 * i = 0 e MMV = 7
-                 * 0 < 7
-                 * 1 < 6
-                 * 2 < 5
-                 * 3 < 4
-                 * 4 <= 3 ? não, mas ainda restam 3 MMV
-                 */
-
                 while (MMV > 0) { // enquanto houverem recargas para morto-vivo matar
                     HM += 1; // mais um habitante morto
                     MMV -= 1; // menos uma recarga de morte
@@ -81,46 +67,18 @@ class TrabalhoI {
                     MMV = MV * 7;
                 }
 
-                /* for (int i = 0; i <= HM; i++) { // laço para habitantes a serem reanimados \\ Errado -> HM decrescendo
-                     * i = 0 e HM = 7
-                     * 0 < 7
-                     * 1 < 6
-                     * 2 < 5
-                     * 3 < 4
-                     * 4 <= 3 ? não, mas ainda restam 3 HM
-                     
-                    if (HM > 0) { // se houverem habitantes mortos a serem reanimados
-                        if (RCB > 0) { // se houverem recargas de reanimação de caminhantes brancos
-                            RCB -= 1; // menos uma recarga de reanimação do caminhante branco
-                            MV += 1; // mais um morto vivo
-                            RH += 1; // mais uma reanimação realizada
-                        } else if (RRN > 0) { // se houverem recargas de reanimação do rei da noite
-                            RRN -= 1; // menos uma recarga de reanimação do rei da noite
-                            MV += 1; // mais um morto vivo
-                            RH += 1; // mais uma reanimação realizada
-                        } else { // faltam possibilidades de reanimação
-                            Dias += 1; // novo dia quando acabam as reanimações ou só para as recargas de morte ?
-                            RCB = CB * 13;
-                            RRN = 131;
-                            // como vai saber quantas reanimações faltam ?
-                            // remove o HM dos IFs e deixa só essa operação no final ou o RH fica desnecessário
-                        }                            
-                        HM = HM - RH;
-                    } else {
-                        // Não há mais habitantes mortos para reanimar | Vitória ?
-                    }
-                }*/
-
                 while (HM > 0) { // enquanto houverem habitantes mortos a serem reanimados
                     if (RCB > 0) { // se houverem recargas de reanimação de caminhantes brancos
                         RCB -= 1; // menos uma recarga de reanimação do caminhante branco
                         HM -= 1; // menos um habitante morto a ser reanimado 
                         MV += 1; // mais um morto vivo
+                        // MMV = MV * 7; // talvez seja necessário declarar novamente essa tbm
                         RH += 1; // mais uma reanimação realizada
                     } else if (RRN > 0) { // se houverem recargas de reanimação do rei da noite
                         RRN -= 1; // menos uma recarga de reanimação do rei da noite
                         HM -= 1; // menos um habitante morto a ser reanimado
                         MV += 1; // mais um morto vivo
+                        // MMV = MV * 7; // talvez seja necessário declarar novamente essa tbm
                         RH += 1; // mais uma reanimação realizada \\ extra
                     } else { // faltam possibilidades de reanimação
                         Dias += 1; // novo dia quando acabam as reanimações ou só para as recargas de morte ?
