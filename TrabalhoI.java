@@ -48,9 +48,9 @@ class TrabalhoI {
         int Dias = 0;
         // Dias necessários
 
-        while (HB > 0) { // enquanto houverem habitantes vivos
-            if (MV > 0) { // se houverem mortos-vivos para matar habitantes
-
+        if (MV > 0) { // se houverem mortos-vivos para matar habitantes
+            while (HB > 0) { // enquanto houverem habitantes vivos
+                Dias++;
                 while (MMV > 0) { // enquanto houverem recargas para morto-vivo matar
                     HM += 1; // mais um habitante morto
                     MMV -= 1; // menos uma recarga de morte
@@ -63,14 +63,14 @@ class TrabalhoI {
                     for (int i = 3; i <= HB; i += 3) { // laço para contagem de habitantes que matam mortos-vivos
                         MV -= 1; // Menos 1 morto-vivo
                     }
-                    Dias += 1;
+                    // Dias += 1;
                     MMV = MV * 7;
                 }
 
                 while (HM > 0) { // enquanto houverem habitantes mortos a serem reanimados
                     if (RCB > 0) { // se houverem recargas de reanimação de caminhantes brancos
                         RCB -= 1; // menos uma recarga de reanimação do caminhante branco
-                        HM -= 1; // menos um habitante morto a ser reanimado 
+                        HM -= 1; // menos um habitante morto a ser reanimado
                         MV += 1; // mais um morto vivo
                         // MMV = MV * 7; // talvez seja necessário declarar novamente essa tbm
                         RH += 1; // mais uma reanimação realizada
@@ -81,14 +81,14 @@ class TrabalhoI {
                         // MMV = MV * 7; // talvez seja necessário declarar novamente essa tbm
                         RH += 1; // mais uma reanimação realizada \\ extra
                     } else { // faltam possibilidades de reanimação
-                        Dias += 1; // novo dia quando acabam as reanimações ou só para as recargas de morte ?
+                        // Dias += 1; // novo dia quando acabam as reanimações ou só para as recargas de morte ?
                         RCB = CB * 13;
                         RRN = 131;
                     }
                 }
-            } else { // não há mortos vivos para matar habitantes
-                System.out.print("Derrota!");
             }
+        } else { // não há mortos vivos para matar habitantes
+            System.out.print("Derrota!");
         }
 
         if (HB == 0) { // Vitória! não há mais habitantes vivos
