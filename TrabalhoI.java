@@ -22,79 +22,96 @@ deverá ser mostrada uma mensagem de "derrota". */
 import java.io.*;
 import java.util.*;
 
-class TrabalhoI {
+class trabalhoI {
     public static void main(String[] args) {
-        Scanner entrada = new Scanner(System.in);
-        System.out.println("Inicia-se a Jornada do Ataque de mortos-vivos para destruir Westeros!");
-        System.out.print("Informe a quantidade de Caminhantes Brancos que acompanharão o Rei da Noite no ataque : ");
-        int CB = entrada.nextInt();
-        // CB = Caminhantes brancos
-        System.out.print("Informe a quantidade inicial de mortos-vivos a disposição dos Caminhantes Brancos : ");
-        int MV = entrada.nextInt();
-        // MV = Mortos vivos
-        System.out.print("Informe a quantidade de habitantes em Westeros : ");
-        int HB = entrada.nextInt();
-        // HB = Habitantes
-        int RCB = CB * 13;
+        int camBranco = 0;
+        // Caminhante Branco
+        int mortoVivo = 0;
+        int habitantes = 0;
+        int cadaveres = 0;
+        int reanCaminhante = 0;
         // Reanimações Caminhante Branco
-        int RRN = 131;
+        int reanRei = 131;
         // Reanimações Rei da Noite
-        int MMV = MV * 7;
+        int mortePorMorto = 0;
         // Mortes por Morto-Vivo
-        int HM = 0;
+        int habitantesMortos = 0;
         // Habitantes Mortos
-        int RH = 0;
-        // Habitantes Reanimados
-        int Dias = 0;
+        int dias = 0;
         // Dias necessários
+        
+        Scanner entrada = new Scanner(System.in);
 
-        if (MV > 0) { // se houverem mortos-vivos para matar habitantes
-            while (HB > 0) { // enquanto houverem habitantes vivos
-                Dias++;
-                while (MMV > 0) { // enquanto houverem recargas para morto-vivo matar
-                    HM += 1; // mais um habitante morto
-                    MMV -= 1; // menos uma recarga de morte
+        System.out.println("Inicia-se a Jornada do Ataque de mortos-vivos para destruir Westeros!");
+
+        System.out.print("Informe a quantidade de Caminhantes Brancos que acompanharão o Rei da Noite no ataque : ");
+        camBranco = entrada.nextInt();
+        // camBranco = Caminhantes brancos
+        System.out.print("Informe a quantidade inicial de mortos-vivos a disposição dos Caminhantes Brancos : ");
+        mortoVivo = entrada.nextInt();
+        // mortoVivo = Mortos vivos
+        System.out.print("Informe a quantidade de habitantes em Westeros : ");
+        habitantes = entrada.nextInt();
+
+        // camBranco = 5;
+        // mortoVivo = 10;
+        // habitantes = 1000;
+        reanCaminhante = (camBranco * 13);
+        
+        if (mortoVivo > 0) {
+            while (habitantes > 0){
+                mortePorMorto = (mortoVivo * 7);
+                // Mata os habitantes e carrega a quantiade de habitantes mortos
+                if(habitantes < mortePorMorto){
+                    habitantesMortos += habitantes;
+                    habitantes = 0;
+                } else {
+                    habitantesMortos = mortePorMorto; // ok
+                    habitantes -= habitantesMortos;
                 }
+                mortoVivo = (mortoVivo - (habitantes / 3));
+                // Subtrai da quantidade de mortos vivos, a capacidade dos habitantes de eliminar um morto vivo
+                if(mortoVivo < 0){
+                    mortoVivo = 0;
+                }
+                        
+                if (habitantesMortos >= reanRei) {
+                    // Se a quantidade de habitantes mortos for MAIOR ou IGUAL a quantidade de reanimações do rei
+                    mortoVivo += reanRei; // Incrementa a quantidade de mortos vivos em 131
+                    habitantesMortos -= reanRei; // Subtrai da quantidade de habitantes mortos a quantidade previamente reanimada
 
-                HB = HB - HM; // habitantes sobreviventes após acabarem as recargas de mortes
-                // esses q sobreviveram vão pra matar mortos vivos ou ficam p outro dia ?
+                    if (reanCaminhante > habitantesMortos) {   // Valida se sobraram pessoas para reanimar
 
-                if (MMV == 0 && HB > 0) { // se acabaram as recargas para matar e ainda há sobreviventes
-                    for (int i = 3; i <= HB; i += 3) { // laço para contagem de habitantes que matam mortos-vivos
-                        MV -= 1; // Menos 1 morto-vivo
+                        // Caso a quantidade de reanimações do caminhante for maior que a quantidade de habitantes mortos,
+                        // exemplo, existem 100 habitantes mortos e 13 caminhantes, isso resultaria em 169 reanimações para 100 habitantes,
+                        // portanto, deve-se reanimar todos e zerar a quantidade de habitantes mortos.
+                        mortoVivo += habitantesMortos;
+                        habitantesMortos = 0;
+                    } else {
+                        mortoVivo += reanCaminhante;
+                        habitantesMortos -= reanCaminhante;
+                        cadaveres += habitantesMortos;
+                        habitantesMortos = 0;
                     }
-                    // Dias += 1;
-                    MMV = MV * 7;
-                }
 
-                while (HM > 0) { // enquanto houverem habitantes mortos a serem reanimados
-                    if (RCB > 0) { // se houverem recargas de reanimação de caminhantes brancos
-                        RCB -= 1; // menos uma recarga de reanimação do caminhante branco
-                        HM -= 1; // menos um habitante morto a ser reanimado
-                        MV += 1; // mais um morto vivo
-                        // MMV = MV * 7; // talvez seja necessário declarar novamente essa tbm
-                        RH += 1; // mais uma reanimação realizada
-                    } else if (RRN > 0) { // se houverem recargas de reanimação do rei da noite
-                        RRN -= 1; // menos uma recarga de reanimação do rei da noite
-                        HM -= 1; // menos um habitante morto a ser reanimado
-                        MV += 1; // mais um morto vivo
-                        // MMV = MV * 7; // talvez seja necessário declarar novamente essa tbm
-                        RH += 1; // mais uma reanimação realizada \\ extra
-                    } else { // faltam possibilidades de reanimação
-                        // Dias += 1; // novo dia quando acabam as reanimações ou só para as recargas de morte ?
-                        RCB = CB * 13;
-                        RRN = 131;
-                    }
+                } else {
+                    // Caso a quantidade de habitantes mortos seja menor que a quantidade de
+                    // reanimacoes do rei isso indica que todos os habitantes mortos serão reanimaos
+                    // pois o rei sozinho já consegue reanimar o restante
+                    mortoVivo += habitantesMortos;
+                    habitantesMortos = 0;
                 }
-            }
-        } else { // não há mortos vivos para matar habitantes
+                dias += 1;   // Incrementa a quantidade de dias decorridos
+
+                System.out.println("FIM DO DIA!");
+                System.out.println("Dias decorrentes: " + dias);
+                System.out.println("Mortos vivos: " + mortoVivo);
+                System.out.println("Habitantes: " + habitantes);
+                System.out.println("Cadáveres não reanimados: " + cadaveres);
+            } 
+        } else { 
+            // não há mortos vivos para matar habitantes
             System.out.print("Derrota!");
-        }
-
-        if (HB == 0) { // Vitória! não há mais habitantes vivos
-            System.out.print("Foram necessários " + Dias + " dias para matar todos os habitantes de Westeros.");
-            System.out.print("Após matar todos os habitantes, resultou-se em " + MV + " mortos-vivos disponíveis.");
-            System.out.print("A quantidade de cadáveres não reanimados foi : " + HM);
         }
     }
 }
