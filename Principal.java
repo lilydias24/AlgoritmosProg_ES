@@ -1006,7 +1006,7 @@ public class Principal {
 }
 */
 
-// { Lista - Estruturas de Repetição - While - Algoritmos e Programação - 22.05.24 }  -----------------------------------
+// { Lista - Estruturas de Repetição - While - Algoritmos e Programação - 22.05.24 } CONCLUIDA -----------------------------------
 
 /* Exercício 1. Faça um programa para mostrar todos os números entre 100 e 1 usando o comando while. 
 
@@ -1035,37 +1035,71 @@ class Principal {
         }
     }
 }*/
-/* Exercício 3. Faça um programa que leia números inteiros e escreva o quadrado do
-número até que o usuário informe zero. 
+/* Exercício 3. Faça um programa que leia números inteiros e escreva o quadrado do número até que o usuário informe zero. 
 Por exemplo:
 Informe um número inteiro ou zero para sair: 3
 O quadrado de 3 é 9
 Informe um número inteiro ou zero para sair: 4
 O quadrado de 4 é 16
-Informe um número inteiro ou zero para sair: 0 */
+Informe um número inteiro ou zero para sair: 0
 
 class Principal {
     public static void main( ){
         Scanner entrada = new Scanner( System.in );
-        System.out.print("Informe um número inteiro : ");
-        int num = entrada.nextInt();
-        while( num != 0 ){
-            num = num * num;
-            System.out.println(num);
-        }
+        int num;
+        int quad = 0;
+        do{ 
+            System.out.print("Informe um número inteiro : ");
+            num = entrada.nextInt();
+            quad = num * num;
+            System.out.println("O quadrado do número informado é " + quad);
+        } while( num != 0 );
     }
-}
-
+} */
 /* Exercício 4. Escreva um programa que solicita o valor de uma compra à vista,
-calcule e mostre o valor da compra, sabendo-se que o desconto do dia é de 10%. O
-algoritmo deve repetir esses passos enquanto forem informados valores positivos
-para compras. */
+calcule e mostre o valor da compra, sabendo-se que o desconto do dia é de 10%. 
+O algoritmo deve repetir esses passos enquanto forem informados valores positivos para compras. 
 
+class Principal {
+    public static void main( ){
+        Scanner entrada = new Scanner( System.in );
+        float avista, desc, total;
+        do { 
+            System.out.print("Informe o valor de compra à vista : ");
+            avista = entrada.nextFloat();
+            desc = (avista * 10)/100;
+            total = avista - desc;
+            System.out.println("O valor de compra com desconto é : " + total);
+        } while ( avista > 0 );    
+    }
+} */
 /* Exercício 5. Faça um programa que leia notas entre 0.0 e 10.0 até que seja
 informada uma nota menor que 0.0. Se uma nota maior que 10.0 for informada, o
 programa deve ignorar essa nota. Finalmente, o programa deve calcular a média
 aritmética simples das notas válidas recebidas (ignorando as notas inválidas e a
-nota menor que zero informada por último) depois de receber um nota negativa. */
+nota menor que zero informada por último) depois de receber um nota negativa. 
+
+class Principal {
+    public static void main( ){
+        Scanner entrada = new Scanner( System.in );
+        float nota, media, notas;
+        int valid = 0;
+        notas = 0;
+        media = 0;
+        do { 
+            System.out.print("Informe o valor de uma nota : ");
+            nota = entrada.nextFloat();
+            if (nota > 0.0 && nota <= 10.0) {
+                valid++;
+                notas += nota;
+            } else {
+                System.out.println("O valor da última nota informada é inválido.");
+            }
+        } while ( nota > 0.0 );  
+        media = notas/valid;
+        System.out.println("O valor da média entre as notas válidas é : " + media);  
+    }
+} */
 
 // Exercícios aula - Estruturas de Repetição - while - Algoritmos e Programação - 22.05.24 - OK
 
@@ -1134,42 +1168,108 @@ class Principal {
 
 /* Exercício 1. Escreva um programa Java que declare um vetor de inteiros de 5
 posições e o preencha com os 5 primeiros números ímpares e imprima-o. 
+
 class Principal {
     public static void main() {
         int vetor[] = new int[5];
-        for (int i = 0; i < 5; i++) {
+        // Opção 1
+        for (int i = 0; i < 1; i++) {
             for (int j = 1; j < 10; j += 2) {
                 vetor[i] = j;
                 System.out.println(vetor[i]);
             }
+        }
+        // Opção 2
+        int num = 1;
+        for (int i = 0; i < 5; i++) {
+            vetor[i] = num;
+            num += 2;
+            System.out.println(vetor[i]);
         }
     }
 } */
 /* Exercício 2. Escreva um programa Java que declare um vetor de inteiros de 10 posições 
 e preencha ele com valores recebidos do usuário. Em seguida, o programa recebe um número inteiro 
 referente a uma posição do vetor e exibe o número inteiro armazenado na posição do vetor criado anteriormente.
+
 class Principal {
     public static void main() {
         int vetor[] = new int[10];
         Scanner entrada = new Scanner(System.in);
         for (int i = 0; i < 10; i++) {
-            System.out.println("Informe o valor para a " + i + " posição");
+            System.out.print("Informe o valor para a posição " + i + " => ");
             vetor[i] = entrada.nextInt();
         }
         System.out.print("Informe o valor referente a uma posição do vetor : ");
         int pos = entrada.nextInt();
-        System.out.print(vetor[pos]);
+        System.out.print("O valor da posição solicitada é : " + vetor[pos]);
     }
-}  */
+} */
 /* Exercício 3. Escreva um programa Java que leia um vetor de inteiros de 10 posições 
 (ou seja, declara um vetor de inteiros de tamanho 10 e armazena 10 valores informados pelo usuário em suas posições) 
-e em seguida escreve a soma dos valores armazenados no vetor. */
+e em seguida escreve a soma dos valores armazenados no vetor. 
+
+class Principal {
+    public static void main() {
+        int vetor[] = new int[10];
+        int soma = 0;
+        Scanner entrada = new Scanner(System.in);
+        for (int i = 0; i < 10; i++) {
+            System.out.print("Informe o valor para a posição " + i + " => ");
+            vetor[i] = entrada.nextInt();
+            soma += vetor[i];
+        }
+        System.out.print("A soma dos valores informados é : " + soma);
+    }
+} */
 
 /* Exercício 4. Escreva um programa Java que leia um vetor de inteiros de 10 posições 
-e informe quantos valores pares ele possui. */
+e informe quantos valores pares ele possui. 
+
+class Principal {
+    public static void main() {
+        int vetor[] = new int[10];
+        int pares = 0;
+        Scanner entrada = new Scanner(System.in);
+        for (int i = 0; i < 10; i++) {
+            System.out.print("Informe o valor para a posição " + i + " => ");
+            vetor[i] = entrada.nextInt();
+            if (vetor[i] % 2 == 0) {
+                pares++;
+            }
+        }
+        System.out.print("Dentre os valores informados, " + pares + " são pares.");
+    }
+} */
 
 /* Exercício 5. Faça um programa que leia um vetor de números reais com 10 posições e, 
-depois, mostre o maior e o menor elemento desse vetor. */
+depois, mostre o maior e o menor elemento desse vetor. 
+
+class Principal {
+    public static void main() {
+        Scanner entrada = new Scanner(System.in);
+        float vetor[] = new float[10]; 
+        for (int i = 0; i < 10; i++) {
+            System.out.print("Informe o valor para a posição " + i + " => ");
+            vetor[i] = entrada.nextFloat();
+        } 
+            
+        float maior = vetor[0];
+        float menor = vetor[0];
+
+        for (int i = 1; i < 10; i++) {
+            if (vetor[i] > maior) {
+                maior = vetor[i];
+            }
+            if (vetor[i] < menor) {
+                menor = vetor[i];
+            }
+        }
+        System.out.println("Dentre os valores informados, o maior é " + maior );
+        System.out.println("Dentre os valores informados, o menor é " + menor );
+
+    }
+} */
 
 /* Exercício 6. Escreva um programa Java que leia um vetor de inteiros de 10 posições e 
 em seguida um valor X qualquer. Seu programa deverá fazer uma busca do valor X no vetor lido 
@@ -1204,3 +1304,68 @@ e construir um vetor B de mesma dimensão com os mesmos elementos armazenados no
 porém de forma invertida. Ou seja, o primeiro elemento do vetor A passa a ser o último do vetor B, 
 o segundo elemento do vetor A passa ser o penúltimo do vetor B e assim por diante. 
 Apresentar os elementos dos vetores A e B. */
+
+// { Lista - Matrizes - Algoritmos e Programação - 04.06.24 }  -------------------------------------------------------------
+
+/* Exercício 1. Escreva um programa Java que declare uma matriz 5 x 5, preencha
+com 1 a diagonal principal e com 0 os demais elementos e, ao final, mostre a matriz
+obtida. */
+
+/* Exercício 2. Escreva um programa Java que leia uma matriz 5 x 3, conte e escreva
+quantos valores maiores que 10 ela possui. */
+
+/* Exercício 3. Escreva um programa Java que leia uma matriz 6 x 6 e escreva a soma
+dos elementos da diagonal principal. */
+
+/* Exercício 4. Escreva um programa Java que leia uma matriz 5 x 5 e a transforme
+numa matriz triangular inferior, atribuindo zero a todos os elementos acima da
+diagonal principal. O programa deve apresentar a matriz. */
+
+/* Exercício 5. Escreva um programa Java que leia uma matriz 4 x 3 e escreva a
+posição (linha e coluna) do menor valor. */
+
+/* Exercício 6. Escreva um programa Java que leia uma matriz 2 x 4 e um valor X. O
+programa deverá fazer uma busca desse valor na matriz e, ao final, escrever a
+localização (linha e coluna) ou uma mensagem de “não encontrado”. */
+
+/* Exercício 7. Escreva um programa Java que leia uma matriz 5 x 2, onde cada
+coluna corresponde a um lado de um triângulo retângulo. Declare um vetor de
+tamanho 5 no qual cada posição contém a área do respectivo triângulo da matriz. */
+
+/* Exercício 8. Escreva um programa Java que leia duas matrizes 4 x 4 e escreva os
+valores da primeira que ocorrem em qualquer posição da segunda. */
+
+/* Exercício 9. Escreva um programa Java que leia uma matriz 2 x 3, gere e escreva a
+matriz transposta. A matriz transposta é gerada trocando linha por coluna. Veja o exemplo a seguir:
+C = 1 2 3   Ct = 1 4
+    4 5 6        2 5
+                 3 6 
+*/
+
+/* Exercício 11. Escreva um programa Java que possa armazenar as alturas de dez
+atletas de cinco delegações que participarão dos jogos de verão. Imprimir a maior
+altura de cada delegação. */
+
+/* Exercício 12. Escreva um programa Java que leia uma matriz 12 x 4 com os valores
+das vendas de uma loja, em que cada linha represente um mês do ano, e cada
+coluna, uma semana do mês. Calcule e imprima:
+● Total vendido em cada mês do ano;
+● Total vendido em cada semana durante todo o ano;
+● Total vendido no ano.
+*/
+
+/* Exercício 13. A empresa Evite Desperdício tem registrados numa tabela os
+consumos de energia elétrica dos anos 2000-2009. Cada linha representa um ano e
+cada coluna representa um mês. Considerando esses dados, fazer um programa
+Java que imprima:
+● O consumo médio em cada um dos meses destes dez anos;
+● O mês/ano em que a empresa gastou mais energia nestes dez anos.
+*/
+
+/* Exercício 14. Uma certa fábrica produziu dois tipos de motores M1 e M2 nos
+meses de janeiro a dezembro. O número de motores foi registrado na Tabela 1.
+O setor de controle de vendas tem uma tabela de custo e do lucro obtidos com cada
+motor conforme Tabela 2. 
+Faça um programa Java que leia a produção mensal, custo e lucro dos motores M1 e
+M2, calcule e mostre o custo e o lucro em cada um dos meses e o lucro anual */
+
