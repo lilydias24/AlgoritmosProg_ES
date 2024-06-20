@@ -1222,7 +1222,6 @@ class Principal {
         System.out.print("A soma dos valores informados é : " + soma);
     }
 } */
-
 /* Exercício 4. Escreva um programa Java que leia um vetor de inteiros de 10 posições 
 e informe quantos valores pares ele possui. 
 
@@ -1241,7 +1240,6 @@ class Principal {
         System.out.print("Dentre os valores informados, " + pares + " são pares.");
     }
 } */
-
 /* Exercício 5. Faça um programa que leia um vetor de números reais com 10 posições e, 
 depois, mostre o maior e o menor elemento desse vetor. 
 
@@ -1270,23 +1268,116 @@ class Principal {
 
     }
 } */
-
 /* Exercício 6. Escreva um programa Java que leia um vetor de inteiros de 10 posições e 
 em seguida um valor X qualquer. Seu programa deverá fazer uma busca do valor X no vetor lido 
-e informar a posição em que foi encontrado ou uma mensagem de “não encontrado”. */
+e informar a posição em que foi encontrado ou uma mensagem de “não encontrado”. 
 
+class Principal {
+    public static void main() {
+        Scanner entrada = new Scanner(System.in);
+        int vetor[] = new int[10]; 
+        for (int i = 0; i < 10; i++) {
+            System.out.print("Informe o valor para a posição " + i + " => ");
+            vetor[i] = entrada.nextInt();
+        } 
+        
+        System.out.print("Agora informe o valor que deseja encontrar : ");
+        int valor = entrada.nextInt();
+        int pos = 0;
+
+        for (int i = 0; i < 10; i++) {
+            if (vetor[i] == valor) {
+                pos = i;
+                i = 10;
+            } else {
+                System.out.println("Valor não encontrado."); // mensagem dentro do loop ?
+            }
+        }
+        System.out.println("A posição do valor buscado é " + pos );
+    }
+} */
 /* Exercício 7. Faça um programa que leia um vetor de números reais de 10 valores e 
 depois outro vetor de números reais com outros 10 valores. 
 Em seguida, o programa deve mostrar o resultado da multiplicação entre os valores de mesmo índice, 
 ou seja, o primeiro valor do primeiro vetor deve ser multiplicado pelo primeiro valor do segundo vetor e, 
-assim, sucessivamente, até que o último valor do primeiro vetor seja multiplicado pelo último valor do segundo vetor. */
+assim, sucessivamente, até que o último valor do primeiro vetor seja multiplicado pelo último valor do segundo vetor. 
 
+class Principal {
+    public static void main() {
+        Scanner entrada = new Scanner(System.in);
+        float vetor1[] = new float[10]; 
+        for (int i = 0; i < 10; i++) {
+            System.out.print("Vetor 1 : Informe o valor para a posição " + i + " => ");
+            vetor1[i] = entrada.nextFloat();
+        } 
+            
+        float vetor2[] = new float[10]; 
+        for (int i = 0; i < 10; i++) {
+            System.out.print("Vetor 2 : Informe o valor para a posição " + i + " => ");
+            vetor2[i] = entrada.nextFloat();
+        } 
+
+        float mult = 0;
+        for (int i = 0; i < 10; i++) {
+            mult = vetor1[i] * vetor2[i];
+            System.out.println("O resultado da multipliação de vetores no índice " + i + " é => " + mult);
+        }
+    }
+}*/
 /* Exercício 8. Escreva um programa Java que leia um conjunto de 10 números reais, armazena-os em um vetor e informe:
 1. Quantos são maiores que a média
-2. Quantos são iguais à média */
+2. Quantos são iguais à média 
+
+class Principal {
+    public static void main() {
+        float vetor[] = new float[10];
+        float soma = 0;
+        Scanner entrada = new Scanner(System.in);
+        for (int i = 0; i < 10; i++) {
+            System.out.print("Informe o valor para a posição " + i + " => ");
+            vetor[i] = entrada.nextFloat();
+            soma += vetor[i];
+        }
+
+        float media = soma/10;
+        int maiores = 0;
+        int iguais = 0;
+        for (int i = 0; i < 10; i++) {
+            if (vetor[i] > media) {
+                maiores++;
+            } else if (vetor[i] == media) {
+                iguais++;
+            }
+        }
+
+        System.out.print("A média dos valores informados é : " + media);
+        System.out.print( maiores + " Valores são maiores que a média");
+        System.out.print( iguais + " Valores são iguais a média");
+
+    }
+} */
 
 /* Exercício 9. Faça um programa que leia um vetor de 10 posições. 
-Verifique se existem valores iguais e escreva-os na tela. */
+Verifique se existem valores iguais e escreva-os na tela. 
+class Principal {
+    public static void main() {
+        int vetor[] = new int[10];
+        Scanner entrada = new Scanner(System.in);
+        for (int i = 0; i < 10; i++) {
+            System.out.print("Informe o valor para a posição " + i + " => ");
+            vetor[i] = entrada.nextInt();
+        }
+        
+        int igual = 0;
+        for (int i = 0; i < 10; i++) {
+            for (int j = 1; j < 10; j ++) {
+                if (vetor[i] == vetor[j]) {
+                    System.out.println(vetor[i] + " na posição [" + i + "] e na posição [" + igual + "] São valores iguais");
+                }
+            }
+        }
+    }
+} */
 
 /* Exercício 10. Durante uma corrida de automóveis com N voltas de duração foram anotadas para um piloto, 
 na ordem sequencial, os tempos registrados em cada volta. Faça um programa para ler os tempos registrados em 15 voltas, 
@@ -1308,8 +1399,20 @@ Apresentar os elementos dos vetores A e B. */
 // { Lista - Matrizes - Algoritmos e Programação - 04.06.24 }  -------------------------------------------------------------
 
 /* Exercício 1. Escreva um programa Java que declare uma matriz 5 x 5, preencha
-com 1 a diagonal principal e com 0 os demais elementos e, ao final, mostre a matriz
-obtida. */
+com 1 a diagonal principal e com 0 os demais elementos e, ao final, mostre a matriz obtida. 
+
+class Principal {
+    public static void main() {
+        int matriz[][] = new int[5][5];
+        Scanner entrada = new Scanner( System.in );
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 5; j++) {
+                matriz[i][j] = 0;
+                System.out.println(matriz[i][j]);
+            }
+        }
+    }
+} */
 
 /* Exercício 2. Escreva um programa Java que leia uma matriz 5 x 3, conte e escreva
 quantos valores maiores que 10 ela possui. */
@@ -1369,3 +1472,247 @@ motor conforme Tabela 2.
 Faça um programa Java que leia a produção mensal, custo e lucro dos motores M1 e
 M2, calcule e mostre o custo e o lucro em cada um dos meses e o lucro anual */
 
+// { Lista - Classes e Objetos - Algoritmos e Programação - 19.06.24 }  -------------------------------------------------------------
+
+/*  Exemplo de Orientação a Objeto 1 
+
+class Principal{
+    public static void main(){
+        Cachorro meuDogao = new Cachorro( );
+        meuDogao.nome = "Teobaldo";
+        meuDogao.cor = "cinza";
+        meuDogao.idade = 4;
+        meuDogao.sexo = 'M';
+    }
+    public static class Cachorro{
+        public String nome;
+        public String cor;
+        public int idade;
+        public char sexo;
+    }
+}
+*/   
+
+/* 1. Faça um algoritmo que crie uma classe interna referente a um cliente contendo os atributos 
+nome (string), cpf (string), idade (número inteiro), endereço (string) e estado civil (caractere). 
+Em seguida, crie um objeto dessa classe com os seguintes atributos:
+- nome “Pedro de Alcântara João Carlos Leopoldo Salvador Bibiano Francisco
+Xavier de Paula Leocádio Miguel Gabriel Rafael Gonzaga”
+- cpf “000.000.000-00”
+- idade 5
+- endereço “Paço de São Cristóvão número 1 - Rio de Janeiro - RJ”
+- estado civil ‘S’ 
+
+class Principal{
+    public static void main(){
+        Cliente cliente1 = new Cliente( );
+        cliente1.nome = "Pedro de Alcântara João Carlos Leopoldo Salvador Bibiano Francisco\r\n" + //
+                        "Xavier de Paula Leocádio Miguel Gabriel Rafael Gonzaga";
+        cliente1.cpf = "000.000.000-00";
+        cliente1.idade = 5;
+        cliente1.endereco = "Paço de São Cristóvão número 1 - Rio de Janeiro - RJ";
+        cliente1.estado_civil = 'S';
+    }
+    public static class Cliente{
+        public String nome;
+        public String cpf;
+        public int idade;
+        public String endereco;
+        public char estado_civil;
+    }
+} */
+/* 2. Faça um algoritmo que crie uma classe interna referente a um animal contendo
+os atributos espécie, nome científico e peso médio. Em seguida, crie quatro objetos
+dessa classe com os seguintes atributos:
+- objeto 1: peixe-bolha, psychrolutes marcidus, 0.6 kg
+- objeto 2: ornitorrinco, ornithorhynchus anatinus, 1.25 kg
+- objeto 3: toupeira-nariz-de-estrela, condylura cristata, 0.3 kg
+- objeto 4: uacari-branco, cacajao calvus, 3.1 kg
+
+class Principal{
+    public static void main(){
+        Animal a1 = new Animal( );
+        a1.especie = "peixe-bolha";
+        a1.nome_cientifico = "psychrolutes marcidus";
+        a1.peso_medio = 0.6;
+
+        Animal a2 = new Animal( );
+        a2.especie = "ornitorrinco";
+        a2.nome_cientifico = "ornithorhynchus anatinus";
+        a2.peso_medio = 1.25;
+
+        Animal a3 = new Animal( );
+        a3.especie = "toupeira-nariz-de-estrela";
+        a3.nome_cientifico = "condylura cristata";
+        a3.peso_medio = 0.3;
+
+        Animal a4 = new Animal( );
+        a4.especie = "uacari-branco";
+        a4.nome_cientifico = "cacajao calvus";
+        a4.peso_medio = 3.1;
+    }
+
+    public static class Animal{
+        public String especie;
+        public String nome_cientifico;
+        public double peso_medio;
+    }
+} */
+/* 3. Faça um algoritmo que crie uma classe interna referente a vilões de histórias
+em quadrinhos contendo os atributos nome (string), inimigo (string) e superpoderes
+(vetor de strings). Em seguida, crie três objetos dessa classe com os seguintes
+atributos:
+- inimigo 1: “Professor Gavião”, “Professor Pardal”, {“inventar coisas medíocres”}
+- inimigo 2: “João Bafo de Onça”, “Pato Donald”, {}
+- inimigo 3: “Maga Patalójika”, “Tio Patinhas”, {“teleportar-se”, “voar na vassoura
+mágica”, “criar e transmutar matéria”, “gerar correntes elétricas”, “transformar-se em
+qualquer criatura”}
+
+class Principal{
+    public static void main(){
+        Viloes inimigo1 = new Viloes( );
+        inimigo1.nome = "Professor Gavião";
+        inimigo1.inimigo = "Professor Pardal";
+        inimigo1.superpoderes[0] = "inventar coisas medíocres" ;
+        
+        Viloes inimigo2 = new Viloes( );
+        inimigo2.nome = "João Bafo de Onça";
+        inimigo2.inimigo = "Pato Donald";
+        inimigo2.superpoderes[1] = "" ;
+
+        Viloes inimigo3 = new Viloes( );
+        inimigo3.nome = "Maga Patalójika";
+        inimigo3.inimigo = "Tio Patinhas";
+        inimigo3.superpoderes[2] = "teleportar-se”, “voar na vassoura mágica”, “criar e transmutar matéria\\r\\n" + //
+        "gerar correntes elétricas”, “transformar-se em qualquer criatura" ;
+    }
+    public static class Viloes{
+        public String nome;
+        public String inimigo;
+        public String superpoderes[] = new String[3];
+    }
+} */
+/* 4. Faça um algoritmo crie uma classe interna referente a livros contendo 
+título (string), quantidade de páginas (número inteiro) e autor (string). 
+Em seguida, crie quatro objetos cujos atributos serão individualmente informados pelo usuário 
+(ou mostre os dados informados pelo usuário para cada objeto).
+
+class Principal{
+    public static void main(){
+        Scanner entrada = new Scanner(System.in);
+
+        Livro l1 = new Livro( );
+        System.out.print("Informe o Título do Livro 1 : ");
+        l1.titulo = entrada.nextLine();
+        System.out.print("Informe a quantidade de páginas do Livro 1 : ");
+        l1.qpag = entrada.nextInt();
+        System.out.print("Informe o autor do Livro 1 : ");
+        l1.autor = entrada.nextLine();
+
+        Livro l2 = new Livro( );
+        System.out.print("Informe o Título do Livro 2 : ");
+        l2.titulo = entrada.nextLine();
+        System.out.print("Informe a quantidade de páginas do Livro 2 : ");
+        l2.qpag = entrada.nextInt();
+        System.out.print("Informe o autor do Livro 2 : ");
+        l2.autor = entrada.nextLine();
+
+        Livro l3 = new Livro( );
+        System.out.print("Informe o Título do Livro 3 : ");
+        l3.titulo = entrada.nextLine();
+        System.out.print("Informe a quantidade de páginas do Livro 3 : ");
+        l3.qpag = entrada.nextInt();
+        System.out.print("Informe o autor do Livro 3 : ");
+        l3.autor = entrada.nextLine();
+    }
+
+    public static class Livro{
+        public String titulo;
+        public int qpag;
+        public String autor;
+    }
+}*/
+/* 5. Faça um algoritmo que crie uma classe interna referente a monstros famosos contendo 
+nome (string) e origem (string). Em seguida, o usuário deve indicar a quantidade de monstros que deseja cadastrar. 
+Você deve criar aquela quantidade de objetos e seus atributos serão individualmente informados pelo usuário 
+(ou seja, o usuário vai informar o nome e a origem para cada monstro). 
+Finalmente, mostre os dados informados pelo usuário para cada monstro. 
+
+
+class Principal{
+    public static void main(){
+        Scanner entrada = new Scanner( System.in );
+        System.out.println("Informe a quantidade de monstros que deseja cadastrar : ");
+        int quant = entrada.nextInt();
+        for (int i = 0; i <= quant; i++) {
+            String x = "m" + i;
+            Monstro x = new Monstro( ); // REVISAR
+            System.out.println(" Informe o nome do monstro " + i);
+            x.nome = entrada.nextLine();
+            System.out.println(" Informe a origem do monstro " + i);
+            x.origem = entrada.nextLine();
+        }
+    }
+    public static class Monstro{
+        public String nome;
+        public String origem;
+    }
+} */
+
+// { Lista - Sub-rotinas - Algoritmos e Programação - 20.06.24 }  -------------------------------------------------------------
+
+/* 1. Faça um programa em Java que invoque uma sub-rotina (método) de saudação
+chamada “darBoasVindas”. Em seguida, crie a sub-rotina indicada que não tem
+parâmetros e não tem retorno. Essa sub-rotina deve apenas mostrar uma mensagem
+de saudação (da sua escolha) para o usuário. */
+
+/* 2. Faça um programa em Java que recebe do usuário um número inteiro relativo a
+uma quantidade de tempo em segundos e que invoque uma sub-rotina chamada
+“paraMinutos”. Em seguida, crie a sub-rotina indicada que tem como parâmetro o
+número inteiro fornecido pelo usuário e que não tem retorno. Essa sub-rotina deve
+converter aquela quantidade de segundos em minutos e mostrar esse resultado ao
+usuário, ignorando valores quebrados. Por exemplo, se o usuário entrar com o valor
+de “123” segundos, o programa deve mostrar apenas “2 minutos”. */
+
+/* 3. Adapte o programa anterior para que o método “paraMinutos” retorne o valor
+resultante da conversão para o método “main” e mostre esse resultado ao usuário
+(dentro do método main). */
+
+/* 4. Faça um programa em Java que recebe do usuário quatro números inteiros
+relativos a uma quantidade de tempo em dias, horas, minutos e segundos, e que
+invoque uma sub-rotina chamada “paraSegundos”. Em seguida, crie a sub-rotina
+indicada que tem como parâmetros os quatro números inteiros fornecidos pelo
+usuário e que não tem retorno. Essa sub-rotina deve converter aquela quantidade de
+dias, horas, minutos e segundos em segundos e mostrar esse resultado ao usuário,
+ignorando valores quebrados. Por exemplo: se o usuário entrar com os valores de 0
+dias, 12 horas, 15 minutos e 2 segundos, o programa deve mostrar apenas “44102
+segundos”. */
+
+/* 5. Faça um programa em Java que receba do usuário uma palavra e invoque uma
+sub-rotina chamada “informarTerceiraLetra”. Em seguida, crie a sub-rotina indicada
+que tem como parâmetro a String fornecida pelo usuário e que não tem retorno. Essa
+sub-rotina deve mostrar qual é a terceira letra da palavra digitada pelo usuário ou
+mostrar uma mensagem de erro se a palavra informada tiver menos que três letras.
+OBS.: lembre-se dos métodos length( ) e charAt( X ) dos objetos String do Java para
+ajudar a resolver esse problema. */
+
+/* 6. Faça um programa em Java que receba do usuário um número inteiro e invoque
+uma sub-rotina chamada “ehNegativo”. Em seguida, crie a sub-rotina indicada que
+tem como parâmetro o número inteiro fornecido pelo usuário e que retorne um valor
+lógico. Essa sub-rotina deve retornar true se o número recebido como parâmetro for
+negativo, ou false se o número recebido for positivo ou zero. */
+
+/* 7. Faça um programa em Java que receba do usuário três números inteiros e
+invoque uma sub-rotina chamada “maior”. Em seguida, crie a sub-rotina indicada que
+tem como parâmetros os três números inteiros fornecidos pelo usuário e que retorne
+um número inteiro. Essa sub-rotina deve retornar o maior dos números passados
+como parâmetros. Por exemplo: se os parâmetros forem −1, 7 e 3, o programa deve
+retornar 3. */
+
+/* 8. Faça um programa em Java que receba do usuário dois números inteiros e
+invoque uma sub-rotina chamada “calcularSomatorio”. Em seguida, crie a sub-rotina
+indicada que possui dois parâmetros (os números inteiros) e que retorne um número
+inteiro. Essa sub-rotina deve calcular a soma de todos os números inteiros existentes
+entre os números passados como parâmetro e retornar o resultado dessa soma.
+Por exemplo: se os parâmetros forem 2 e 6, a sub-rotina deve calcular 2+3+4+5+6 e
+retornar 20 */
