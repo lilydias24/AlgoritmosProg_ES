@@ -1149,7 +1149,7 @@ class Principal {
 }
 */
 
-// { Lista - Vetores - Algoritmos e Programação - 28.05.24 }  -------------------------------------------------------------
+// { Lista - Vetores - Algoritmos e Programação - 28.05.24 } CONCLUÍDA -------------------------------------------------------------
 
 /* class Principal {
     public static void main() {
@@ -1250,11 +1250,9 @@ class Principal {
         for (int i = 0; i < 10; i++) {
             System.out.print("Informe o valor para a posição " + i + " => ");
             vetor[i] = entrada.nextFloat();
-        } 
-            
+        }    
         float maior = vetor[0];
         float menor = vetor[0];
-
         for (int i = 1; i < 10; i++) {
             if (vetor[i] > maior) {
                 maior = vetor[i];
@@ -1280,11 +1278,9 @@ class Principal {
             System.out.print("Informe o valor para a posição " + i + " => ");
             vetor[i] = entrada.nextInt();
         } 
-        
         System.out.print("Agora informe o valor que deseja encontrar : ");
         int valor = entrada.nextInt();
         int pos = 0;
-
         for (int i = 0; i < 10; i++) {
             if (vetor[i] == valor) {
                 pos = i;
@@ -1309,14 +1305,12 @@ class Principal {
         for (int i = 0; i < 10; i++) {
             System.out.print("Vetor 1 : Informe o valor para a posição " + i + " => ");
             vetor1[i] = entrada.nextFloat();
-        } 
-            
+        }   
         float vetor2[] = new float[10]; 
         for (int i = 0; i < 10; i++) {
             System.out.print("Vetor 2 : Informe o valor para a posição " + i + " => ");
             vetor2[i] = entrada.nextFloat();
         } 
-
         float mult = 0;
         for (int i = 0; i < 10; i++) {
             mult = vetor1[i] * vetor2[i];
@@ -1338,7 +1332,6 @@ class Principal {
             vetor[i] = entrada.nextFloat();
             soma += vetor[i];
         }
-
         float media = soma/10;
         int maiores = 0;
         int iguais = 0;
@@ -1349,16 +1342,14 @@ class Principal {
                 iguais++;
             }
         }
-
         System.out.print("A média dos valores informados é : " + media);
         System.out.print( maiores + " Valores são maiores que a média");
         System.out.print( iguais + " Valores são iguais a média");
-
     }
 } */
-
 /* Exercício 9. Faça um programa que leia um vetor de 10 posições. 
 Verifique se existem valores iguais e escreva-os na tela. 
+
 class Principal {
     public static void main() {
         int vetor[] = new int[10];
@@ -1367,34 +1358,105 @@ class Principal {
             System.out.print("Informe o valor para a posição " + i + " => ");
             vetor[i] = entrada.nextInt();
         }
-        
-        int igual = 0;
         for (int i = 0; i < 10; i++) {
-            for (int j = 1; j < 10; j ++) {
+            for (int j = i + 1; j < 10; j++) {
                 if (vetor[i] == vetor[j]) {
-                    System.out.println(vetor[i] + " na posição [" + i + "] e na posição [" + igual + "] São valores iguais");
+                    System.out.println(vetor[i] + " na posição [" + i + "] e na posição [" + j + "] São valores iguais");
                 }
             }
         }
     }
 } */
-
 /* Exercício 10. Durante uma corrida de automóveis com N voltas de duração foram anotadas para um piloto, 
 na ordem sequencial, os tempos registrados em cada volta. Faça um programa para ler os tempos registrados em 15 voltas, 
 calcular e imprimir:
 A. Melhor tempo registrado;
 B. A volta em que o pior tempo ocorreu;
-C. Tempo médio das N voltas. */
+C. Tempo médio das N voltas. 
 
+class Principal {
+    public static void main() {
+        float vetor[] = new float[15];
+        float maisRapido = 0;
+        float maisLento = 0;
+        float media = 0;
+        Scanner entrada = new Scanner(System.in);
+        for (int i = 0; i < 15; i++) {
+            System.out.print("Informe o tempo para a volta " + i + " => ");
+            vetor[i] = entrada.nextFloat();
+        }
+        maisRapido = vetor[0];
+        maisLento = vetor[0];
+        for (int i = 0; i < 15; i++){
+            if (maisRapido > vetor[i]) {
+                maisRapido = vetor[i];
+           }
+        }
+        System.out.println("O melhor tempo do piloto é: " + maisRapido);
+         for (int i = 0; i < 15; i++){
+            if (maisLento < vetor[i]) {
+                maisLento = vetor[i];
+           }
+        }
+        System.out.println("O tempo mais devagar do piloto é: " + maisLento);
+        for (int i = 0; i < 15; i++){
+            media = media + vetor[i];
+        }
+        media = media/15;
+        System.out.println("O tempo médio do piloto é: " + media);
+    }
+}*/
 /* Exercício 11. Faça um programa que receba o número sorteado por um dado (de seis lados) em vinte jogadas 
 e armazene-os em um vetor. Se algum valor de entrada informado não estiver no intervalo de 1 a 6, 
-esse número deve ser pedido novamente. Mostre a frequência de cada número sorteado. */
+esse número deve ser pedido novamente. Mostre a frequência de cada número sorteado. 
 
+class Principal {
+    public static void main(String[] args) {
+        int vetor[] = new int[20];
+        int frequencia[] = new int[6];
+        Scanner entrada = new Scanner(System.in);
+        for (int i = 0; i < 20; i++) {
+            System.out.print("Informe o valor para a posição " + i + " (entre 1 e 6) => ");
+            vetor[i] = entrada.nextInt();
+            while (vetor[i] < 1 || vetor[i] > 6) {
+                System.out.print("Valor inválido! Informe um novo valor para a posição " + i + " (entre 1 e 6) => ");
+                vetor[i] = entrada.nextInt();
+            }
+            frequencia[vetor[i] - 1]++; // Atualiza a frequência do valor lido
+        }
+        for (int i = 0; i < 6; i++) { // Exibição da frequência de cada valor
+            System.out.println("Frequência do número " + (i + 1) + ": " + frequencia[i]);
+        }
+    }
+} */
 /* Exercício 12. Elaborar um programa que leia 20 elementos do tipo real em um vetor A 
 e construir um vetor B de mesma dimensão com os mesmos elementos armazenados no vetor A, 
 porém de forma invertida. Ou seja, o primeiro elemento do vetor A passa a ser o último do vetor B, 
 o segundo elemento do vetor A passa ser o penúltimo do vetor B e assim por diante. 
-Apresentar os elementos dos vetores A e B. */
+Apresentar os elementos dos vetores A e B. 
+
+class Principal {
+    public static void main() {
+        float A[] = new float[20];
+        float B[] = new float[20];
+        Scanner entrada = new Scanner(System.in);
+        for (int i = 0; i < 20; i++) {
+            System.out.print("Informe um valor real para a posição " + i + " do vetor A => ");
+            A[i] = entrada.nextFloat();
+        }
+        for (int i = 0; i < 20; i++) {
+            B[i] = A[19 - i];
+        }   
+        System.out.println("\nVetor A:");
+        for (int i = 0; i < 20; i++) {
+            System.out.println("A[" + i + "] = " + A[i]);
+        }
+        System.out.println("\nVetor B:");
+        for (int i = 0; i < 20; i++) {
+            System.out.println("B[" + i + "] = " + B[i]);
+        }
+    }
+}*/
 
 // { Lista - Matrizes - Algoritmos e Programação - 04.06.24 }  -------------------------------------------------------------
 
@@ -1407,29 +1469,180 @@ class Principal {
         Scanner entrada = new Scanner( System.in );
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 5; j++) {
-                matriz[i][j] = 0;
-                System.out.println(matriz[i][j]);
+                if (i == j) {
+                    matriz[i][j] = 1; // Preenche a diagonal principal com 1
+                } else {
+                    matriz[i][j] = 0; // Preenche os demais elementos com 0
+                }
+            }
+        }
+        // Imprimindo a matriz
+        System.out.println("\nA matriz é :");
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 5; j++) {
+                System.out.print(matriz[i][j] + " ");
+            }
+            System.out.println(); // Nova linha após cada linha da matriz
+        }
+    }
+} 
+/* Exercício 2. Escreva um programa Java que leia uma matriz 5 x 3, conte e escreva
+quantos valores maiores que 10 ela possui. 
+
+class Principal {
+    public static void main() {
+        int matriz[][] = new int[5][3];
+        int maiores = 0;
+        Scanner entrada = new Scanner( System.in );
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 3; j++) {
+                System.out.print("Informe um valor para compor a matriz na coluna " + (j + 1) + " da linha " + (i + 1) + " => " );
+                matriz[i][j] = entrada.nextInt();
+                
+                if (matriz[i][j] > 10) {
+                    maiores += 1;
+                }
+            }
+        }
+        // Imprimindo a matriz
+        //for (int i = 0; i < 5; i++) {
+        //    for (int j = 0; j < 3; j++) {
+        //        System.out.print(matriz[i][j] + " ");
+        //    }
+        //    System.out.println(); // Nova linha após cada linha da matriz
+        //}
+        System.out.println("A matriz informada possui : " + maiores + " valores maiores do que 10, sendo eles : ");
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (matriz[i][j] > 10) {
+                    System.out.print(matriz[i][j] + " | ");
+                }
             }
         }
     }
 } */
-
-/* Exercício 2. Escreva um programa Java que leia uma matriz 5 x 3, conte e escreva
-quantos valores maiores que 10 ela possui. */
-
 /* Exercício 3. Escreva um programa Java que leia uma matriz 6 x 6 e escreva a soma
-dos elementos da diagonal principal. */
+dos elementos da diagonal principal. 
 
+class Principal {
+    public static void main() {
+        int matriz[][] = new int[6][6];
+        int soma = 0;
+        Scanner entrada = new Scanner( System.in );
+        for (int i = 0; i < 6; i++) {
+            for (int j = 0; j < 6; j++) {
+                System.out.print("Informe um valor para compor a matriz na coluna " + (j + 1) + " da linha " + (i + 1) + " => " );
+                matriz[i][j] = entrada.nextInt();
+    
+                if (i == j) { // diagonal
+                    soma += matriz[i][j];
+                }
+            }
+        }
+        // Imprimindo a matriz
+        System.out.println("\nA matriz é :");
+        for (int i = 0; i < 6; i++) {
+            for (int j = 0; j < 6; j++) {
+                System.out.print(matriz[i][j] + " ");
+            }
+            System.out.println(); // Nova linha após cada linha da matriz
+        }
+        System.out.print("\nA soma dos valores da diagonal principal da matriz é = " + soma );
+    }
+} */
 /* Exercício 4. Escreva um programa Java que leia uma matriz 5 x 5 e a transforme
 numa matriz triangular inferior, atribuindo zero a todos os elementos acima da
-diagonal principal. O programa deve apresentar a matriz. */
+diagonal principal. O programa deve apresentar a matriz. 
 
+class Principal {
+    public static void main() {
+        int matriz[][] = new int[5][5];
+        Scanner entrada = new Scanner( System.in );
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 5; j++) {
+                if (i == j || j > i) {
+                    matriz[i][j] = 1; // Preenche com 1
+                } else {
+                    matriz[i][j] = 0; // Preenche os demais elementos com 0
+                }
+            }
+        }
+        // Imprimindo a matriz
+        System.out.println("\nA matriz é :\n");
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 5; j++) {
+                System.out.print(matriz[i][j] + " ");
+            }
+            System.out.println(); // Nova linha após cada linha da matriz
+        }
+    }
+} */
 /* Exercício 5. Escreva um programa Java que leia uma matriz 4 x 3 e escreva a
-posição (linha e coluna) do menor valor. */
+posição (linha e coluna) do menor valor. 
 
+class Principal {
+    public static void main() {
+        int matriz[][] = new int[4][3];
+        Scanner entrada = new Scanner( System.in );
+        int menor = matriz[0][0];
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 3; j++) {
+                System.out.print("Informe um valor para compor a matriz na coluna " + (j + 1) + " da linha " + (i + 1) + " => " );
+                matriz[i][j] = entrada.nextInt();
+                if (menor > matriz[i][j]) {
+                    menor = matriz[i][j]; 
+                }
+            }
+        }    
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (menor == matriz[i][j]) {
+                    System.out.print("O menor valor é : [" + menor +"] está na posição de coluna " + (j + 1) + " da linha " + (i + 1));
+                }
+            }
+        }
+    }
+} */
 /* Exercício 6. Escreva um programa Java que leia uma matriz 2 x 4 e um valor X. O
 programa deverá fazer uma busca desse valor na matriz e, ao final, escrever a
 localização (linha e coluna) ou uma mensagem de “não encontrado”. */
+
+class Principal {
+    public static void main() {
+        int matriz[][] = new int[2][4];
+        int buscar = 0;
+        Scanner entrada = new Scanner( System.in );
+        for (int i = 0; i < 2; i++) {
+            for (int j = 0; j < 4; j++) {
+                System.out.print("Informe um valor para compor a matriz na coluna " + (j + 1) + " da linha " + (i + 1) + " => " );
+                matriz[i][j] = entrada.nextInt();
+            }
+        }
+       
+        System.out.print("Informe um valor que deseja buscar na matriz : ");
+        buscar = entrada.nextInt();
+        
+        // Imprimindo a matriz
+        System.out.println("\nA matriz é :\n");
+        for (int i = 0; i < 2; i++) {
+            for (int j = 0; j < 4; j++) {
+                System.out.print(matriz[i][j] + " ");
+            }
+            System.out.println(); 
+        }
+
+        for (int i = 0; i < 2; i++) {
+            for (int j = 0; j < 4; j++) {
+                if (buscar == matriz[i][j]) {
+                    System.out.print("O valor buscado é : " + buscar + " e está na posição de coluna [" + (j + 1) + "] da linha [" + (i + 1) + "]");
+                } else {
+                    System.out.println("Não Encontrado!");
+                }
+            }
+        }
+    }
+}
+
 
 /* Exercício 7. Escreva um programa Java que leia uma matriz 5 x 2, onde cada
 coluna corresponde a um lado de um triângulo retângulo. Declare um vetor de
@@ -1472,7 +1685,7 @@ motor conforme Tabela 2.
 Faça um programa Java que leia a produção mensal, custo e lucro dos motores M1 e
 M2, calcule e mostre o custo e o lucro em cada um dos meses e o lucro anual */
 
-// { Lista - Classes e Objetos - Algoritmos e Programação - 19.06.24 }  -------------------------------------------------------------
+// { Lista - Classes e Objetos - Algoritmos e Programação - 19.06.24 } 90% -------------------------------------------------------------
 
 /*  Exemplo de Orientação a Objeto 1 
 
@@ -1595,7 +1808,7 @@ class Principal{
 /* 4. Faça um algoritmo crie uma classe interna referente a livros contendo 
 título (string), quantidade de páginas (número inteiro) e autor (string). 
 Em seguida, crie quatro objetos cujos atributos serão individualmente informados pelo usuário 
-(ou mostre os dados informados pelo usuário para cada objeto).
+(ou mostre os dados informados pelo usuário para cada objeto). 
 
 class Principal{
     public static void main(){
@@ -1631,27 +1844,33 @@ class Principal{
         public int qpag;
         public String autor;
     }
-}*/
+} */
 /* 5. Faça um algoritmo que crie uma classe interna referente a monstros famosos contendo 
 nome (string) e origem (string). Em seguida, o usuário deve indicar a quantidade de monstros que deseja cadastrar. 
 Você deve criar aquela quantidade de objetos e seus atributos serão individualmente informados pelo usuário 
 (ou seja, o usuário vai informar o nome e a origem para cada monstro). 
-Finalmente, mostre os dados informados pelo usuário para cada monstro. 
-
+Finalmente, mostre os dados informados pelo usuário para cada monstro.  
 
 class Principal{
     public static void main(){
         Scanner entrada = new Scanner( System.in );
-        System.out.println("Informe a quantidade de monstros que deseja cadastrar : ");
+        System.out.print("Informe a quantidade de monstros que deseja cadastrar : ");
         int quant = entrada.nextInt();
-        for (int i = 0; i <= quant; i++) {
-            String x = "m" + i;
-            Monstro x = new Monstro( ); // REVISAR
-            System.out.println(" Informe o nome do monstro " + i);
-            x.nome = entrada.nextLine();
-            System.out.println(" Informe a origem do monstro " + i);
-            x.origem = entrada.nextLine();
-        }
+ 
+        // int Monstro[] = new int[2];
+
+        //for (int i = 1; i <= quant; i++) {
+        int i = 1;
+        do {
+            Monstro famoso = new Monstro( ); // REVISAR
+            System.out.print("Informe o nome do monstro " + i + " : ");
+            famoso.nome = entrada.nextLine();
+            System.out.println(" ");
+            System.out.print("Informe a origem do monstro " + i + " : ");
+            famoso.origem = entrada.nextLine();
+            i++;
+        } while( i <= quant);
+        //}
     }
     public static class Monstro{
         public String nome;
@@ -1660,6 +1879,27 @@ class Principal{
 } */
 
 // { Lista - Sub-rotinas - Algoritmos e Programação - 20.06.24 }  -------------------------------------------------------------
+
+// Exemplo 1
+// class Principal {
+//     public static void main( ){
+//         double saldo, rendimento;
+//         Scanner entrada = new Scanner( System.in );
+//         System.out.println("Por favor, digite seu saldo");
+//         saldo = entrada.nextDouble( );
+//         rendimento = Principal.calcularRendimento(saldo);
+//         System.out.println("Rendimento anual de "+rendimento);
+//     }
+//     public static double calcularRendimento( double saldo ){
+//         double acumulado, rendimento;
+//         acumulado = saldo;
+//         for( int i = 1; i <= 12; i++ ){
+//         acumulado = acumulado + acumulado * 0.001575;
+//     }
+//     rendimento = acumulado - saldo;
+//     return rendimento;
+//     }
+// }
 
 /* 1. Faça um programa em Java que invoque uma sub-rotina (método) de saudação
 chamada “darBoasVindas”. Em seguida, crie a sub-rotina indicada que não tem
