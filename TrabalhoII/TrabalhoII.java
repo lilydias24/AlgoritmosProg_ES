@@ -76,7 +76,7 @@ public class TrabalhoII {
             System.out.println(); 
         }
     
-        if (vez == quindins) {
+       /*  if (vez == quindins) {
             System.out.print("Informe a direção que deseja puxar a toalha : ");
             direcao = entrada.nextLine();
             char quindins = 'Q';
@@ -96,7 +96,7 @@ public class TrabalhoII {
             int linha = entrada.nextInt();
             System.out.print("Coluna : ");
             int coluna = entrada.nextInt();
-        }
+        
     }
 
     
@@ -109,5 +109,6 @@ public class TrabalhoII {
                 }
             }
         }
+    }}*/
     }
 }

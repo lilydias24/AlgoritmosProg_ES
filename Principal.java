@@ -1,5 +1,5 @@
-import java.io.*;
-import java.util.*;
+//import java.io.*;
+//import java.util.*;
 
 /* Modelo JAVA
 class Principal {
@@ -1603,9 +1603,9 @@ class Principal {
         }
     }
 } */
-/* Exercício 6. Escreva um programa Java que leia uma matriz 2 x 4 e um valor X. O
+/* * Exercício 6. Escreva um programa Java que leia uma matriz 2 x 4 e um valor X. O
 programa deverá fazer uma busca desse valor na matriz e, ao final, escrever a
-localização (linha e coluna) ou uma mensagem de “não encontrado”. */
+localização (linha e coluna) ou uma mensagem de “não encontrado”. 
 
 class Principal {
     public static void main() {
@@ -1641,8 +1641,7 @@ class Principal {
             }
         }
     }
-}
-
+} */
 
 /* Exercício 7. Escreva um programa Java que leia uma matriz 5 x 2, onde cada
 coluna corresponde a um lado de um triângulo retângulo. Declare um vetor de
@@ -1845,7 +1844,7 @@ class Principal{
         public String autor;
     }
 } */
-/* 5. Faça um algoritmo que crie uma classe interna referente a monstros famosos contendo 
+/* * 5. Faça um algoritmo que crie uma classe interna referente a monstros famosos contendo 
 nome (string) e origem (string). Em seguida, o usuário deve indicar a quantidade de monstros que deseja cadastrar. 
 Você deve criar aquela quantidade de objetos e seus atributos serão individualmente informados pelo usuário 
 (ou seja, o usuário vai informar o nome e a origem para cada monstro). 
@@ -1956,3 +1955,4 @@ inteiro. Essa sub-rotina deve calcular a soma de todos os números inteiros exis
 entre os números passados como parâmetro e retornar o resultado dessa soma.
 Por exemplo: se os parâmetros forem 2 e 6, a sub-rotina deve calcular 2+3+4+5+6 e
 retornar 20 */
+

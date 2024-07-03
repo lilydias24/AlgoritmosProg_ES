@@ -7,15 +7,17 @@ public class Main {
         Jogador j1 = new Jogador();
         Jogador j2 = new Jogador();
 
-        j1.setSigla('M');
-        j2.setSigla('B');
+        j1.setSigla("Douglas",'D');
+        j2.setSigla("Gervasio",'G');
 
-        Mesa m = new Mesa();
+        Mesa mesa = new Mesa(4,4, '■');
+        mesa.populaTabuleiro();
+        System.out.println(mesa.marcarTabuleiro(j1, 2, 2));
+        System.out.println(mesa.marcarTabuleiro(j2, 3, 3));
 
-        m.marcarTabuleiro(j1, 1, 2);
-        m.marcarTabuleiro(j2, 3, 3);
-
-
-        m.imprimirTabuleiro();
+        System.out.println(mesa.mover("B"));
+        // System.out.println(m.mover("B"));
+        // System.out.println(m.mover("B"));
+        System.out.println(mesa.getStringTabuleiro());
     }
 }
