@@ -2,6 +2,7 @@ package RecFaltas02a16;
 
 import java.io.*;
 import java.util.*;
+import java.util.Random;
 
 // Recuperação de falta 07.05.24 - Algoritmos ES - Sorteador Aleatorio
 
@@ -20,31 +21,57 @@ public class recFaltaII {
         final int pedra = 0;
         final int papel = 1;
         final int tesoura = 2;
-        int jogadas[][] = new int[10][2];
-        String jog1 = " ";
-        String jog2 = " ";
-        int vencedor = 0;
+        
         System.out.println("Vamos Jogar Pedra(0) - Papel(1) - Tesoura(2) - Usuário VS Computador!");
+        
         for(int i = 0; i < 10; i++){
             System.out.print("Usuário, informe sua escolha : ");
             int usuario = entrada.nextInt();
-            if (usuario == pedra || usuario == papel || usuario == tesoura ) {
-                jogadas[i][0] = usuario;
-            } else {
-                System.out.println("Valor Inválido Informado!");
+            
+            while (usuario < 0 || usuario > 2) {
+                System.out.println("Valor Inválido! Escolha novamente");
+                usuario = entrada.nextInt();
             }
+            
             int computador = random.nextInt(3);
-            jogadas[i][1] = computador;
-
-            for(int j = 0; j < 2; j++){
-                if(jogadas[i][j] == pedra){
-                    
-                } else if (jogadas[i][j] == papel) {
-                    
-                } else if (jogadas[i][j] == tesoura) { 
-
-                }
+            
+            String escUsuario = converterEscolha(usuario);
+            String escComputador = converterEscolha(computador);
+            
+            System.out.println("Usuário escolheu: " + escUsuario);
+            System.out.println("Computador escolheu: " + escComputador);
+            
+            int vencedor = determinarVencedor(usuario, computador);
+            
+            if (vencedor == 0) {
+                System.out.println("Resultado: Empate!");
+            } else if (vencedor == 1) {
+                System.out.println("Resultado: Usuário Venceu!");
+            } else {
+                System.out.println("Resultado: Computador Venceu!");
             }
+            System.out.println();
+        }
+    }
+    
+    public static String converterEscolha(int escolha) {
+        switch (escolha) {
+            case 0: return "Pedra";
+            case 1: return "Papel";
+            case 2: return "Tesoura";
+            default: return " ";
+        }
+    }
+    
+    public static int determinarVencedor(int usuario, int computador) {
+        if (usuario == computador) {
+            return 0; // Empate
+        } else if ((usuario == 0 && computador == 2) || 
+                   (usuario == 1 && computador == 0) || 
+                   (usuario == 2 && computador == 1)) {
+            return 1; // Usuário vence
+        } else {
+            return 2; // Computador vence
         }
     }
 }

@@ -9,7 +9,7 @@ import java.util.*;
 // informe a quantidade de números ímpares e pares lidos. 
 // Calcule também a soma dos números pares e a média dos números ímpares.
 /*
-public class recFaltaI {  // Exercício 1 -> Descomente trecho de código para testar.
+public class recFaltaI {  // Exercício 1 -> Descomente o trecho de código para testar.
     public static void main(String[] args){
         int numeros[] = new int[10];
         int pares = 0;
@@ -50,9 +50,8 @@ public class recFaltaI {  // Exercício 1 -> Descomente trecho de código para t
 // Faça um programa para ler o código, número de horas trabalhadas 
 // e número de dependentes de cada funcionário. Após a leitura, escreva qual o código, 
 // os valores descontados para cada tipo de imposto e finalmente o salário líquido de cada um dos funcionários. */
-
 /* 
-public class recFaltaI { // Exercício 2 -> Descomente trecho de código para testar.
+public class recFaltaI { // Exercício 2 -> Descomente o trecho de código para testar.
     public static void main(String[] args){
         Scanner entrada = new Scanner(System.in);
         int funcionario[][] =  new int[10][3];

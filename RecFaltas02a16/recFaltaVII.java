@@ -5,6 +5,14 @@ import java.util.Scanner;
 
 // Recuperação de falta 16.05.24 - Algoritmos ES - Depuração
 
+/* O código em questão apresenta um problema na estrutura de exibição da matriz.
+A estrutura de for aninhados está incorreta para percorrer e imprimir a matriz,
+tendo em vista que a matriz possui 3 linhas e duas colunas, mas o laço executa
+como se a matriz tivesse 2 linhas e 2 colunas.
+Além disso, a matriz é impressa de maneira errada, já que não informa
+os índices a serem impressos a cada repetição dos laços, que seriam utilizados
+para percorrer cada posição da matriz construida ao longo do código.
+*/
 public class recFaltaVII {
     public static void main(String[] args) {
         
@@ -27,6 +35,5 @@ public class recFaltaVII {
             }
             System.out.print("\n");             // "\n" = quebra de linha
         }    
-        
     }
 }

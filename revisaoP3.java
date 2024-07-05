@@ -29,7 +29,7 @@ public class revisaoP3 {
                 }
 
                 for(int k = 0; k < 25; k++){
-                    if(numAleatorio != vetor[k]){
+                    if(numAleatorio == vetor[k]){
                         numAleatorio = random.nextInt(100);
                     } else {
                         cartela[i][j] = numAleatorio;
