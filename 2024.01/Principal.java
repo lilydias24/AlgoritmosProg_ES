@@ -5,8 +5,8 @@
 class Principal {
     public static void main (String[] args){
         Scanner entrada = new Scanner(System.in);
-        int a = entrada.newInt;
-        System.out.print(...);
+        int a = entrada.nextInt();
+        System.out.print("...");
     }
 } 
 */
