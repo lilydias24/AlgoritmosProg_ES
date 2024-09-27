@@ -1,5 +1,6 @@
-import java.io.*;
-import java.util.*;
+package Atividades;
+import java.util.Scanner;
+
 
 /* fazer um programa em Java que receba do usuário um número inteiro ímpar 
 referente à altura das asas de uma borboleta 

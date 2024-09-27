@@ -1,4 +1,4 @@
-package E2_Equals;
+package Atividades;
 
 /* Propriedades do Equals : 
  * 1) Reflexiva 

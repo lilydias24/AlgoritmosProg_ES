@@ -1,4 +1,4 @@
-package E2_Equals;
+package Atividades;
 
 public class Estacionamento {
     public String endereco;

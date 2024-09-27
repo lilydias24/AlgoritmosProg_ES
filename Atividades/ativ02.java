@@ -1,3 +1,4 @@
+package Atividades;
 import java.util.Scanner;
 
 /* Crie um programa em Java que implemente duas classes: Carro e Estacionamento.
