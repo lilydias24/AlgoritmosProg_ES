@@ -1,4 +1,4 @@
-package trabalhoI_POO.src.estudantes.entidades;
+package estudantes.entidades;
 
 /**
  * Classe que define um produto no supermercado.

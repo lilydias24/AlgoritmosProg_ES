@@ -1,11 +1,11 @@
-package trabalhoI_POO.src.estudantes.entidades;
+package estudantes.entidades;
 
-public class Eletronico extends Produto {
+public class Eletroeletronico extends Produto {
     // Atributos da classe 
     private short tensao;
 
     // Construtor de Eletronico que chama o construtor da classe Produto
-    public Eletronico(int codigo, String nome, String fabricante, int peso, short tensao) {
+    public Eletroeletronico(int codigo, String nome, String fabricante, int peso, short tensao) {
         super(codigo, nome, fabricante, peso);
         this.tensao = tensao;
     }
@@ -49,7 +49,7 @@ public class Eletronico extends Produto {
             return false;
         }
         // Conversão explícita para acessar os atributos do outro objeto
-        Eletronico outroEletro = (Eletronico) outro;
+        Eletroeletronico outroEletro = (Eletroeletronico) outro;
         // Compara o atributo 
         return tensao == outroEletro.tensao;
     }

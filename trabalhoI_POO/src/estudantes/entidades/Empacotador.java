@@ -1,7 +1,7 @@
-package trabalhoI_POO.src.estudantes.entidades;
+package estudantes.entidades;
 
-import trabalhoI_POO.src.professor.entidades.Caixa;
-import trabalhoI_POO.src.professor.entidades.Fiscal;
+import professor.entidades.Caixa;
+import professor.entidades.Fiscal;
 
 /**
  * Classe que traz a lógica do algoritmo de "ensacolamento" dos produtos.

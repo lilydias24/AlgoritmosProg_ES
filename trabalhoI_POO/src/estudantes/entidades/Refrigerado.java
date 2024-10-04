@@ -1,4 +1,4 @@
-package trabalhoI_POO.src.estudantes.entidades;
+package estudantes.entidades;
 
 public class Refrigerado extends Perecivel {
     // Atributos da classe

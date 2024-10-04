@@ -1,4 +1,4 @@
-package trabalhoI_POO.src.estudantes.entidades;
+package estudantes.entidades;
 
 public class Cosmetico extends CuidadosPessoais {
     // Atributos da classe 
