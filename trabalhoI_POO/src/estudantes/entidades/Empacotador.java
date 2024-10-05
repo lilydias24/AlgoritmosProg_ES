@@ -39,6 +39,23 @@ public class Empacotador {
      * @param caixa o caixa onde está o empacotador
      * @param fiscal fiscal que pode ser consultado sobre as sacolas despachadas
      */
+
+    // Instruções : 
+    // acomodar todas as compras, não extrapole o peso de cada sacola, otimize o uso das sacolas 
+    // e respeite as regras de dispensa de produtos do supermercado.
+    // atender simultaneamente cinco caixas do supermercado, pegando produtos de um monte e colocando em sacolas. 
+    // pegar um produto de um monte do caixa (não está em ordem) e colocar em uma sacola aberta naquele caixa
+    // dispensar uma sacola para o fiscal transportar para o caminhão, liberando o espaço 
+    // para uma nova sacola vazia naquele caixa que será reposta apenas quando ele trocar de caixa.
+    // produtos dos montes repostos apenas quando todos os caixas estiverem sem produtos nos montes.
+    // produtos de cuidados pessoais não podem ser colocados com produtos alimentícios/perecivel/nãoPerecivel/Refrigerado.
+    // produtos de limpeza não podem dividir a sacola com produtos alimentícios/perecivel/nãoPerecivel/Refrigerado, eletroeletrônicos ou cuidados pessoais/higiente/cosmeticos. 
+    // produtos refrigerados só podem ser colocados junto de outros produtos refrigerados (+-15 graus de diferença)
+    // Cada caixa do supermercado pode manter até cinco sacolas abertas para colocação de compras pelo empacotador.
+    // cada sacola suporta, no máximo, 5 quilos (5000 gramas) de produtos. 
+    // Colocar peso acima do limite faz com que a sacola rasgue, a sacola é imediatamente substituída por outra vazia.
+    // É esperado que nenhuma sacola seja dispensada com menos de 1 quilo (1000 gramas) de produtos dentro.  
+
     public void agir(Caixa caixa, Fiscal fiscal){
         
     }
