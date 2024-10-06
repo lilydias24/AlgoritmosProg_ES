@@ -1,7 +1,7 @@
 package estudantes.entidades;
 
 /**
- * Classe que define um produto no supermercado.
+ * Classe que define um Produto no supermercado.
  * <br><br>
  * Essa classe pode ser estendida. Adicionalmente, ela deve:
  * <br><br>
@@ -15,7 +15,10 @@ package estudantes.entidades;
  * 
  * @author Jean Cheiran
  * @version 1.0
+ * @author Emilly e Eric
+ * @version 2.0
  */
+
 public class Produto {
     // Atributos da classe produto
     private int codigo;
@@ -23,6 +26,14 @@ public class Produto {
     private String fabricante;
     private int peso;
 
+    /**
+     * Método construtor de Produto.
+     *
+     * @param codigo O código do produto, pertencente a classe Produto.
+     * @param nome O nome do produto, pertencente a classe Produto.
+     * @param fabricante O fabricante do produto, pertencente a classe Produto.
+     * @param peso O peso do produto, pertencente a classe Produto.
+     */
     // Método construtor da classe produto
     public Produto(int codigo, String nome, String fabricante, int peso){
         this.codigo = codigo;

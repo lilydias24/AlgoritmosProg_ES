@@ -1,7 +1,7 @@
 package estudantes.entidades;
 
 /**
- * Classe que define um produto no supermercado como Alimenticio.
+ * Classe que define um produto no supermercado como de Alimenticio, uma extensão da classe Produto.
  * <br><br>
  * Essa classe pode ser estendida. Adicionalmente, ela deve:
  * <br><br>
@@ -9,7 +9,7 @@ package estudantes.entidades;
  * 2) implementar métodos de acesso (getters), sendo que métodos de modificação
  * (setters) NÃO devem ser implementados,<br>
  * 3) sobre-escrever os métodos toString, equals e hashCode,<br>
- * 4) ter um JavaDoc útil e completo.
+ * 4) ter um JavaDoc útil.
  * <br><br>
  * 
  * @author Emilly e Eric
@@ -20,6 +20,15 @@ public class Alimenticio extends Produto {
     // Atributos da classe 
     private long validade;
 
+    /**
+     * Método construtor de Alimenticio, utiliza o construtor da classe Produto.
+     *
+     * @param codigo O código do produto, herdado da classe Produto.
+     * @param nome O nome do produto, herdado da classe Produto.
+     * @param fabricante O fabricante do produto, herdado da classe Produto.
+     * @param peso O peso do produto, herdado da classe Produto.
+     * @param validade A validade do produto, pertencente a classe Alimenticio.
+     */
     // Construtor de Alimenticio que chama o construtor da classe Produto
     public Alimenticio(int codigo, String nome, String fabricante, int peso, long validade) {
         super(codigo, nome, fabricante, peso);

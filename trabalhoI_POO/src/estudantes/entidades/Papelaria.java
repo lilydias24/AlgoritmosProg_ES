@@ -1,7 +1,29 @@
 package estudantes.entidades;
 
+/**
+ * Classe que define um produto no supermercado como de Papelaria, uma extensão da classe Produto.
+ * <br><br>
+ * Essa classe pode ser estendida. Adicionalmente, ela deve:
+ * <br><br>
+ * 1) ter um construtor completo,<br>
+ * 2) sobre-escrever os métodos toString, equals e hashCode,<br>
+ * 3) ter um JavaDoc útil.
+ * <br><br>
+ * 
+ * @author Emilly e Eric
+ * @version 1.0
+ */
+
 public class Papelaria extends Produto {
     
+    /**
+     * Método construtor de Papelaria, utiliza o construtor da classe Produto.
+     *
+     * @param codigo O código do produto, herdado da classe Produto.
+     * @param nome O nome do produto, herdado da classe Produto.
+     * @param fabricante O fabricante do produto, herdado da classe Produto.
+     * @param peso O peso do produto, herdado da classe Produto.
+     */
     // Construtor da classe Papelaria que chama o construtor da classe Produto
     public Papelaria(int codigo, String nome, String fabricante, int peso) {
         super(codigo, nome, fabricante, peso);
