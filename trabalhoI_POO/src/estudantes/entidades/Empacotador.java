@@ -8,12 +8,23 @@ import professor.entidades.Sacola;
  * Classe que implementa a lógica do algoritmo de "ensacolamento" dos produtos.
  * 
  * @author Emilly e Eric
- * @version 1.0
+ * @version 2.0
+ * @since 2024
  */
 public class Empacotador {
 
+    /**
+     * Define o caixa em que o empacotador deve empacotar produtos.
+     */
     public int proximoCaixa = 1; // Usada para saber para onde o empacotador deve ir
 
+    /**
+     * Verifica se o produto respeita as regras de compatibilidade e limite de peso para que seja adicionado a sacola.
+     *
+     * @param sacola A sacola onde o produto será adicionado.
+     * @param novoProduto O produto que será adicionado à sacola.
+     * @return {@code true} se o produto foi adicionado com sucesso, {@code false} caso contrário.
+     */
     // Verifica se o produto pode ser adicionado à sacola respeitando as regras
     private boolean AdicionarProduto(Sacola sacola, Produto novoProduto) {
         Produto[] produtosNaSacola = sacola.getArrayDaSacola();
@@ -129,3 +140,4 @@ public class Empacotador {
         return (proximoCaixa % 5) + 1;
     }
 }
+

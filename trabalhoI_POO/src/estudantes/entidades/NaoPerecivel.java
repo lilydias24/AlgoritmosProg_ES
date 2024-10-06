@@ -1,10 +1,26 @@
 package estudantes.entidades;
 
+/**
+ * Classe que define um produto no supermercado como Não perecível, extensão da classe Alimenticio.
+ * <br><br>
+ * Essa classe pode ser estendida. Adicionalmente, ela deve:
+ * <br><br>
+ * 1) ter um construtor completo, <br>
+ * 2) implementar métodos de acesso (getters), sendo que métodos de modificação
+ * (setters) NÃO devem ser implementados,<br>
+ * 3) sobre-escrever os métodos toString, equals e hashCode,<br>
+ * 4) ter um JavaDoc útil e completo.
+ * <br><br>
+ * 
+ * @author Emilly e Eric
+ * @version 1.0
+ */
+
 public class NaoPerecivel extends Alimenticio {
-    // Atributos da classe Eletronico
+    // Atributos da classe 
     private String tipoDeArmazenamento;
 
-    // Construtor de NaoPerecivel que chama o construtor da classe Produto
+    // Construtor de NaoPerecivel que chama o construtor da classe Alimenticio
     public NaoPerecivel(int codigo, String nome, String fabricante, int peso, long validade, String tipoDeArmazenamento) {
         super(codigo, nome, fabricante, peso, validade);
         this.tipoDeArmazenamento = tipoDeArmazenamento;

@@ -1,5 +1,21 @@
 package estudantes.entidades;
 
+/**
+ * Classe que define um produto no supermercado como Cosmético, uma extensão da classe Cuidados Pessoais.
+ * <br><br>
+ * Essa classe pode ser estendida. Adicionalmente, ela deve:
+ * <br><br>
+ * 1) ter um construtor completo,<br>
+ * 2) implementar métodos de acesso (getters), sendo que métodos de modificação
+ * (setters) NÃO devem ser implementados,<br>
+ * 3) sobre-escrever os métodos toString, equals e hashCode,<br>
+ * 4) ter um JavaDoc útil e completo.
+ * <br><br>
+ * 
+ * @author Emilly e Eric
+ * @version 1.0
+ */
+
 public class Cosmetico extends CuidadosPessoais {
     // Atributos da classe 
     private char tipoDePele;
