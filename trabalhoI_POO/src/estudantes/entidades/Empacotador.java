@@ -73,8 +73,8 @@ public class Empacotador {
                 return sacola; // Encontrou uma sacola válida
             }
         }
-
         // Se não encontrar uma sacola válida, retornamos null (não há sacolas disponíveis)
+
         return null;
     }
 

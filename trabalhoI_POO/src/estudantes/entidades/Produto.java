@@ -64,21 +64,21 @@ public class Produto {
 
     // Método equals para comparação da estrutura dos objetos
     @Override
-    public boolean equals(Object prod){
+    public boolean equals(Object o){
         // Qualquer coisa é diferente de NULL
-        if(prod == null){
+        if(o == null){
             return false;
         }
         // Propriedade REFLEXIVA
-        if(this == prod){
+        if(this == o){
             return true;
         }
         // Objetos de classes diferentes nunca são iguais
-        if(this.getClass() != prod.getClass()){
+        if(this.getClass() != o.getClass()){
             return false;
         }
         // Conversão explícita para acessar os atributos do outro objeto
-        Produto outroProd = (Produto) prod;
+        Produto outroProd = (Produto) o;
         // Verifica se todos os atributos são iguais
         // Atributos do tipo String comparados com equals e do tipo int com == (tipo primitivo)
         if(this.codigo == outroProd.codigo &&

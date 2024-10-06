@@ -31,25 +31,25 @@ public class NaoPerecivel extends Alimenticio {
 
     // Método equals para comparação da estrutura dos objetos
     @Override
-    public boolean equals(Object outro) {
+    public boolean equals(Object o) {
         // Verifica se o objeto passado é nulo ou de outra classe
-        if (outro == null) {
+        if (o == null) {
             return false;
         }
         // Verifica se é igual ao próprio objeto
-        if (this == outro) {
+        if (this == o) {
             return true;
         }
         // Objetos de classes diferentes nunca são iguais
-        if(this.getClass() != outro.getClass()){
+        if(this.getClass() != o.getClass()){
             return false;
         }
         // Chama o equals da superclasse Alimenticio
-        if (!super.equals(outro)) {
+        if (!super.equals(o)) {
             return false;
         }
         // Conversão explícita para acessar os atributos do outro objeto
-        NaoPerecivel outroNPerecivel= (NaoPerecivel) outro;
+        NaoPerecivel outroNPerecivel= (NaoPerecivel) o;
         // Compara o atributo 
         if(this.tipoDeArmazenamento.equals(outroNPerecivel.tipoDeArmazenamento)){
             return true;
